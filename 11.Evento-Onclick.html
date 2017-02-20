@@ -15,5 +15,20 @@
   </button>
   <p id="data-hora-local"></p>
 
+  <h4>Alterando o próprio elemento com "this":</h4>
+  <button onclick="this.innerHTML = Date();">
+    What time is it?
+  </button>
+  <h4>Exibindo a data e hora com função:</h4>
+  <button onclick="exibirDataHora();">
+    Função Data e Hora
+  </button>
+  <p id="data-hora-funcao"></p>
+
+  <script>
+    function exibirDataHora() {
+      document.getElementById("data-hora-funcao").innerHTML = Date();
+    }
+  </script>
 </body>
 </html>
