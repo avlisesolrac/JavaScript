@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Escopo de Variáveis Globais em JavaScript</title>
+</head>
+<body>
+
+<h4>Escopo de variáveis: As variáveis globais, ou seja, criado fora de funções são acessíveis por qualquer função:</h4>
+<p id="var-global"></p>
+<p id="var-global-object"></p>
+
+<script>
+  var nomeCarro = "Volvo";
+  var nome = "Carlos";
+  /*Se atribuir um valor a uma variável sem declará-la, automaticamente se tornará global, mas há um pattern que pode ocorrer erros ao fazer isso*/
+  myFunction();
+
+  function myFunction() {
+    document.getElementById("var-global").innerHTML = "Com variável global é possível acessá-la de qualquer função: " + nomeCarro;
+  }
+
+  document.getElementById("var-global-object").innerHTML = "Variável global usando o objeto window: " + window.nome;
+</script>
+</body>
+</html>
