@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+</head>
+<body>
+
+  <h3>Métodos de Strings em JavaScript:</h3>
+  <h4>Length:</h4>
+  <p id="qtd-char"></p>
+
+  <h4>indexOf():</h4>
+  <p id="indexOf">Por favor localize neste parágrafo o indice que contem a string "localização" ao clicar no botão.</p>
+  <button onclick="localizarIndexOf();">Localizar</button>
+  <p id="exibir-indexOf"></p>
+
+  <h4>search():</h4>
+  <p id="search">Por favor localize neste parágrafo o indice que contem a string "palavra" ao clicar no botão.</p>
+  <button onclick="pesquisarComSearch();">Pesquisar</button>
+  <p id="exibir-search"></p>
+
+  <h4>slice():</h4>
+  <p id="slice"></p>
+
+  <script>
+    var cadeia = "CARLOS";
+    var string = "Maça, Maracujá, Uva";
+
+    document.getElementById("qtd-char").innerHTML = "A cadeia CARLOS tem " + cadeia.length + " caracteres.";
+
+    document.getElementById("slice").innerHTML = string.slice(6,)
+
+    /*Obter o índice do início de uma cadeia de caracteres localizada dentro de uma string*/
+    function localizarIndexOf() {
+      var string = document.getElementById("indexOf").innerHTML;
+      var posicaoInicial = string.indexOf("localização");
+      /*
+        Retorna o mesmo valor que o indexOf();
+        var posicaoFinal = string.lastIndexOf("localização");
+
+        PS.: Lembrando que ambos [indexOf() e lastIndexOf()] retornam -1 caso a cadeia de caracteres não seja encontrada.
+      */
+      document.getElementById("exibir-indexOf").innerHTML = posicaoInicial;
+    }
+
+    function pesquisarComSearch(){
+      var string = document.getElementById("search").innerHTML;
+      var posicaoSearch = string.search("palavra");
+      document.getElementById("exibir-search").innerHTML = posicaoSearch;
+    }
+  </script>
+</body>
+</html>
