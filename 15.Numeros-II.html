@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Números</title>
+</head>
+<body>
+
+  <h3>Números em JavaScript:</h3>
+  <pre>
+    var x = 34.00;  //Um número com decimais
+    var y = 34;     //Um número sem decimais
+
+    <!--Números extra grandes ou extra pequenos podem ser descritos com notação científica:-->
+    var x1 = 123e5;  //12300000
+    var y1 = 123e-5;  //0.00123
+  </pre>
+
+  <h4>Precisão de números inteiros é só de até 15 dígitos:</h4>
+  <button onclick="precisaoInteiro();">Teste a Precisão</button>
+  <p id="precisao-inteiro"></p>
+
+  <h4>Precisão de números decimais é só de até 17 dígitos, mas não é 100% precisa:</h4>
+  <button onclick="precisaoDecimal();">Teste a Precisão</button>
+  <p id="precisao-decimal"></p>
+
+  <h4>Representação de números na base 16, 8 e 2 com toString():</h4>
+  <button onclick="converterBase();">Converter</button>
+  <p id="base"></p>
+
+  <h4>Infinity:</h4>
+  <button onclick="multiplicarAoInfinito();">Infinito</button>
+  <p id="infinity"></p>
+
+  <h4>Divisão por 0:</h4>
+  <button onclick="divisaoPorZero();">Dividir</button>
+  <p id="divisaoPorZero"></p>
+
+  <h4>NaN - Not a Number(Não é um Número):</h4>
+  <button onclick="notANumber();">100/Apple</button>
+  <p id="notANumber"></p>
+
+  <h4>Descobrir se uma variável não é um número com isNaN():</h4>
+  <button onclick="ehUmNaN();">isNaN?</button>
+  <p id="ehUmNaN"></p>
+
+  <script>
+    function precisaoInteiro() {
+      var quinzeDigitos = 999999999999999;
+      var dezesseisDigitos = 9999999999999999;
+
+      document.getElementById("precisao-inteiro").innerHTML = quinzeDigitos + "<br>" + dezesseisDigitos;
+    }
+
+    function precisaoDecimal() {
+      var x = 0.2 + 0.1;
+      document.getElementById("precisao-decimal").innerHTML = "0.2 + 0.1 = " + x;
+      /*Pra resolver esse problema de precisão:
+          var x = (0.2*10 + 0.1*10)/10;
+      */
+    }
+
+    function converterBase() {
+      var numero = 128;
+      document.getElementById("base").innerHTML = "128 = " + numero + " Decimal, " +
+      numero.toString(16) + " Hexadecimal, " + numero.toString(8) + " Octal, " +
+      numero.toString(2) + " Binário.";
+    }
+
+    function multiplicarAoInfinito() {
+      var numero = 2;
+      var resultado = "";
+
+      while(numero != Infinity) {
+        numero *= numero;
+        resultado += numero + "<br>";
+      }
+      document.getElementById("infinity").innerHTML = resultado;
+    }
+
+    function divisaoPorZero() {
+      var x = 2/0;
+      var y = -2/0;
+      document.getElementById("divisaoPorZero").innerHTML = "x = 2/0 = " + x +
+        "<br>" + "y = -2/0 = " + y;
+      /*Infinity é um número*/
+      console.log(typeof Infinity);
+    }
+
+    function notANumber() {
+      document.getElementById("notANumber").innerHTML = "100 / Apple = " + 100/"Apple";
+      //Mas se dentro das aspas duplas tiver um número ao invés de um inteiro, então será realizado o cálculo normalmente.
+    }
+
+    function ehUmNaN() {
+      var x = 100 / "Maça";
+      document.getElementById("ehUmNaN").innerHTML = isNaN(x);
+      /*typeof NaN retorna "number"*/
+    }
+  </script>
+</body>
+</html>
